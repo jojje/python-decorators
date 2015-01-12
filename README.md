@@ -9,7 +9,7 @@ to avoid repeating over and over and .. over.
 
 At present it contains the following decorator.
 
-## add_equality
+## equality
 
 This is a class decorator with the purpose of simplifying the creation
 of the `__eq__` and `__hash__` methods. The motivation for this is,
@@ -38,7 +38,7 @@ codification of that pattern.
 Example use:
 
 ```python 
-@add_equality('attr_a','attr_b')
+@equality('attr_a','attr_b')
 class C: 
     ...
 ```

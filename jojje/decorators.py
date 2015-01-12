@@ -1,4 +1,4 @@
-def add_equality(*atts, **kw):
+def equality(*atts, **kw):
     """
     Adds __eq__ and __hash__ functions to a class.
     
@@ -23,7 +23,7 @@ def add_equality(*atts, **kw):
     
     Example use:
     
-      @add_equality('name','age')
+      @equality('name','age')
       class Person:
           def __init__(self, name, age, mood):
               self.name = name
