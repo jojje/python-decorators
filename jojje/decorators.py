@@ -95,6 +95,12 @@ def comparable(*atts, **kwargs):
     object's hash code, such as a dict or set. Changing the dependent
     attributes while the object is in such data structures will make the
     data structure fail to locate the stored object.
+
+    Note on side effects:
+    The decorator adds functions to the *actual class* it is attached
+    to, that is it doesn't return a wrapper with the new functions.
+    As such it is a method generator, not a delegate constructor as
+    decorators typically are.
     """
 
     import inspect
