@@ -41,7 +41,7 @@ codification of that pattern, with natural ordering *provided for free*.
 Example use:
 
 ```python 
-@equality('attr_a', 'asc', 'attr_b', 'desc')
+@comparable('attr_a', 'asc', 'attr_b', 'desc')
 class C: 
     ...
 ```
