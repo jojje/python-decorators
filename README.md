@@ -3,7 +3,7 @@
 Collection of convenience decorators for Python.
 
 The purpose is to eliminate tediousness and aspects prone to errors
-during python development.  
+during python development.
 The module will expand as I discover new patterns in Python that I want
 to avoid repeating over and over and .. over.
 
@@ -40,15 +40,25 @@ codification of that pattern, with natural ordering *provided for free*.
 
 Example use:
 
-```python 
+```python
 @comparable('attr_a', 'asc', 'attr_b', 'desc')
-class C: 
+class C:
+    ...
+
+@comparable('attr_a', 'asc', some_func, 'desc')
+class C:
     ...
 ```
 
 where class is either a new or old style class and where `attr_a` and
-`attr_b` are attributes that will be defined in the class before
-comparison or hash (identity) checks are called.
+`attr_b` are attributes that the user is expected to define on the
+object before comparison or hash (identity) checks are used.
+
+A user provided function may be provided in place of an attribute name,
+which then takes on the responsibility of creating a value to be used
+for hashing and comparison, instead of looking up an object's attribute
+value. Custom functions offer increased flexibility when just referring
+attribute values is not sufficient for the use case.
 
 The implemented `__lt__`  `__eq__` and `__hash__` functions each compare
 and compute the specified attributes in turn, in the order listed in the
